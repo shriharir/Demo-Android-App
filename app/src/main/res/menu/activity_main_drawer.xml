@@ -9,17 +9,4 @@
             android:icon="@android:drawable/ic_lock_power_off"
             android:title="Logout" />
     </group>
-
-    <!--    <item android:title="App Info">
-            <menu>
-                <item
-                    android:id="@+id/version"
-                    android:title="Version" />
-                <item
-                    android:id="@+id/build"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Build" />
-            </menu>
-        </item>-->
-
 </menu>

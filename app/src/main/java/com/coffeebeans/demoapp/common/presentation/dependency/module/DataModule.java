@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.coffeebeans.demoapp.common.data.net.RestApi;
 import com.coffeebeans.demoapp.common.data.net.interceptor.HttpInterceptor;
-import com.coffeebeans.demoapp.login.data.repository.LoginDataRepository;
+import com.coffeebeans.demoapp.login.data.repository.UserDataRepository;
 import com.coffeebeans.demoapp.login.domain.repository.UserRepository;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
@@ -43,6 +43,6 @@ public class DataModule {
     @Provides
     @Singleton
     UserRepository provideUserRepository(RestApi restApi) {
-        return new LoginDataRepository(restApi);
+        return new UserDataRepository(restApi);
     }
 }

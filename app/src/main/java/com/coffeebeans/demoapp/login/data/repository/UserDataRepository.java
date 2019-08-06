@@ -10,12 +10,12 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-public class LoginDataRepository extends RestApiRepository implements UserRepository {
+public class UserDataRepository extends RestApiRepository implements UserRepository {
 
     private final RestApi restApi;
 
     @Inject
-    public LoginDataRepository(RestApi restApi) {
+    public UserDataRepository(RestApi restApi) {
         this.restApi = restApi;
     }
 

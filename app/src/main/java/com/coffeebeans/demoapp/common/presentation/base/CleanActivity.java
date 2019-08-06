@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
+import com.coffeebeans.demoapp.R;
 import com.coffeebeans.demoapp.common.data.net.error.RestApiErrorException;
 import com.coffeebeans.demoapp.common.presentation.util.Utility;
 import com.coffeebeans.demoapp.common.presentation.view.BaseView;
@@ -28,14 +29,25 @@ public abstract class CleanActivity extends BaseActivity implements BaseView {
     @Override
     public void handleError(Throwable error) {
         if (error instanceof RestApiErrorException) {
+            String failed_login_message;
             switch (((RestApiErrorException) error).getStatusCode()) {
+                case RestApiErrorException.UNAUTHORIZED:
+                    failed_login_message = getResources().getString(R.string.error_unauthorized);
+                    break;
+                case RestApiErrorException.NOT_FOUND:
+                    failed_login_message = getResources().getString(R.string.error_not_found);
+                    break;
                 case RestApiErrorException.FORBIDDEN:
-                    closeAndDisplayLogin();
+                    failed_login_message = getResources().getString(R.string.error_forbidden);
+                    break;
+                case RestApiErrorException.BAD_REQUEST:
+                    failed_login_message = getResources().getString(R.string.error_bad_request);
                     break;
                 default:
-                    Utility.showAlertDialogOK(this, error.getMessage(), "Error");
+                    failed_login_message = error.getMessage();
                     break;
             }
+            Utility.showAlertDialogOK(CleanActivity.this, failed_login_message, "Error");
         } else if (error instanceof ConnectException || error instanceof SocketTimeoutException || error instanceof UnknownHostException) {
             Utility.showAlertDialogOK(this, "no internet", "Error");
         }

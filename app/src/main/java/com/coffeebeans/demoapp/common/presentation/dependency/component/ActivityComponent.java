@@ -8,7 +8,7 @@ import dagger.Component;
 
 @ActivityScope
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
-public interface ActivityComponent extends FragmentInjector {
+public interface ActivityComponent {
 
     void inject(LoginActivity loginActivity);
 

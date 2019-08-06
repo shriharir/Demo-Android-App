@@ -6,7 +6,6 @@ import com.coffeebeans.demoapp.common.presentation.dependency.component.Activity
 import com.coffeebeans.demoapp.common.presentation.dependency.component.ApplicationComponent;
 import com.coffeebeans.demoapp.common.presentation.dependency.component.DaggerActivityComponent;
 import com.coffeebeans.demoapp.common.presentation.dependency.component.DaggerApplicationComponent;
-import com.coffeebeans.demoapp.common.presentation.dependency.component.FragmentInjector;
 import com.coffeebeans.demoapp.common.presentation.dependency.module.ActivityModule;
 import com.coffeebeans.demoapp.common.presentation.dependency.module.ApplicationModule;
 import com.coffeebeans.demoapp.common.presentation.dependency.module.DataModule;
@@ -36,11 +35,6 @@ public class CoreBaseApplication extends Application {
 
     public ApplicationComponent getApplicationComponent() {
         return this.applicationComponent;
-    }
-
-    public FragmentInjector getFragmentInjector() {
-        return DaggerActivityComponent.builder()
-                .applicationComponent(this.applicationComponent).build();
     }
 
     public ActivityComponent getActivityComponent() {
