@@ -1,3 +1,3 @@
 # Demo Android App
 
-A sample android app 
+A basic android app using clean architecture approach 
